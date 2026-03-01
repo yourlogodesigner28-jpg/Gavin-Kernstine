@@ -170,6 +170,10 @@
       document.getElementById('recoveryModal').style.display = 'flex';
     }
 
+    function closePopup() {
+      document.getElementById('recoveryModal').style.display = 'none';
+    }
+
     function showRecoveryStep2() {
       const content = document.getElementById('modalContent');
       content.innerHTML = `
@@ -180,7 +184,7 @@
           and securely complete the payment.<br><br>
           This is the last step to unlock your 2026 Vacation Meet & Greet experience.
         </p>
-        <!-- No close button – remains non-closable -->
+        <button class="close-button" onclick="closePopup()">Close</button>
       `;
     }
   </script>
