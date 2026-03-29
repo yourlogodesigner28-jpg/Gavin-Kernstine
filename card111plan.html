@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Membership Card 2026 Dashboard</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #797979;
+      color: #f1f1f1;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .dashboard {
+      max-width: 420px;
+      padding: 20px;
+      border-radius: 12px;
+      background-color: #2c2c2c;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      position: relative;
+    }
+    .profile img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #f1f1f1;
+    }
+    .profile h2 {
+      margin-top: 10px;
+      color: #ff9800;
+    }
+    h1 {
+      color: #ff9800;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+    .membership-card {
+      padding: 15px;
+      background-color: #3d3d3d;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+    .fan-image {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2px solid #ff9800;
+      object-fit: cover;
+      position: absolute;
+      top: 15px;
+      left: 15px;
+    }
+    .membership-card h3 {
+      margin-left: 110px;
+      color: #ff9800;
+      text-align: left;
+    }
+    .membership-card p {
+      margin: 5px 0;
+      color: #cccccc;
+      text-align: left;
+      margin-left: 110px;
+    }
+
+    .open-button, .close-button, .plan-button {
+      padding: 12px 28px;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+    .open-button, .plan-button {
+      background-color: #ff9800;
+    }
+    .open-button:hover, .plan-button:hover {
+      background-color: #ffb84d;
+    }
+    .close-button {
+      background-color: #555;
+    }
+    .close-button:hover {
+      background-color: #777;
+    }
+
+    .popup-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.88);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .popup-content {
+      background-color: #2c2c2c;
+      padding: 28px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 460px;
+      color: #ffffff;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    }
+    .popup-content h2 {
+      color: #ff9800;
+      margin: 0 0 20px 0;
+      font-size: 24px;
+    }
+    .plan-grid {
+      display: grid;
+      gap: 12px;
+      margin: 20px 0;
+    }
+    .plan-card {
+      background-color: #3d3d3d;
+      padding: 18px;
+      border-radius: 10px;
+      text-align: left;
+      border: 2px solid #555;
+      transition: all 0.3s;
+    }
+    .plan-card:hover {
+      border-color: #ff9800;
+      transform: translateY(-3px);
+    }
+    .plan-card h3 {
+      color: #ff9800;
+      margin: 0 0 8px 0;
+    }
+    .plan-card .price {
+      font-size: 22px;
+      font-weight: bold;
+      color: #ff9800;
+      margin: 10px 0;
+    }
+    .plan-card ul {
+      padding-left: 20px;
+      margin: 12px 0;
+      color: #cccccc;
+    }
+    .plan-card ul li {
+      margin: 6px 0;
+    }
+    .important-text {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 20px 0;
+      color: #ff9800;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Celebrity Profile -->
+    <div class="profile">
+      <img src="./assets1/celel.jpg" alt="Celebrity Image">
+      <h2>Membership Card 2026</h2>
+    </div>
+    <h1>Welcome, Bridget Peterson!</h1>
+   
+    <!-- Membership Card -->
+    <div class="membership-card">
+      <img src="./assets1/fan_profile1.jpg" alt="Fan Image" class="fan-image">
+      <h3>Your Membership Card</h3>
+      <p>Member: Bridget Peterson</p>
+      <p>Membership ID: #111</p>
+      <p>Status: Active</p>
+    </div>
+
+    <!-- View Details Button -->
+    <button class="open-button" onclick="openPopup()">Vacation Meet & Greet 2026</button>
+  </div>
+
+  <!-- Popup Modal -->
+  <div class="popup-modal" id="recoveryModal">
+    <div class="popup-content" id="modalContent">
+      <!-- Step 1: Choose Plan -->
+      <h2>Vacation Meet & Greet 2026</h2>
+      <p style="color: #e0e0e0; margin-bottom: 25px;">
+        Choose your preferred package to secure your exclusive in-person meeting, private FaceTime call, and luxury vacation with the celebrity.
+      </p>
+
+      <div class="plan-grid">
+        <!-- Plan 1 -->
+        <div class="plan-card" onclick="selectPlan(1)">
+          <h3>Standard Experience</h3>
+          <div class="price">$1,800</div>
+          <ul>
+            <li>1-hour in-person meet & greet</li>
+            <li>Private FaceTime call (15 min)</li>
+            <li>Autographed merchandise</li>
+            <li>Digital photo</li>
+          </ul>
+        </div>
+
+        <!-- Plan 2 -->
+        <div class="plan-card" onclick="selectPlan(2)">
+          <h3>Premium Experience</h3>
+          <div class="price">$2,900</div>
+          <ul>
+            <li>2-hour private meet & greet</li>
+            <li>Extended FaceTime call (30 min)</li>
+            <li>Personalized video message</li>
+            <li>Luxury dinner included</li>
+            <li>Exclusive merchandise set</li>
+          </ul>
+        </div>
+
+        <!-- Plan 3 -->
+        <div class="plan-card" onclick="selectPlan(3)">
+          <h3>VIP Experience</h3>
+          <div class="price">$4,500</div>
+          <ul>
+            <li>Full-day VIP access</li>
+            <li>Private yacht or villa experience</li>
+            <li>1-hour professional photoshoot</li>
+            <li>Extended FaceTime + video call</li>
+            <li>Custom signed artwork</li>
+          </ul>
+        </div>
+
+        <!-- Plan 4 -->
+        <div class="plan-card" onclick="selectPlan(4)">
+          <h3>Ultimate Luxury</h3>
+          <div class="price">$7,200</div>
+          <ul>
+            <li>3-day luxury vacation package</li>
+            <li>Private jet transfer option</li>
+            <li>Multiple private meetings</li>
+            <li>Professional photoshoot + video</li>
+            <li>All premium gifts + surprises</li>
+            <li>Personal assistant during trip</li>
+          </ul>
+        </div>
+      </div>
+
+      <button class="close-button" onclick="closePopup()">Cancel</button>
+    </div>
+  </div>
+
+  <script>
+    function openPopup() {
+      document.getElementById('recoveryModal').style.display = 'flex';
+    }
+
+    function closePopup() {
+      document.getElementById('recoveryModal').style.display = 'none';
+    }
+
+    function selectPlan(planNumber) {
+      const prices = ["", "$1,800", "$2,900", "$4,500", "$7,200"];
+      const planNames = ["", "Standard Experience", "Premium Experience", "VIP Experience", "Ultimate Luxury"];
+
+      const content = document.getElementById('modalContent');
+      content.innerHTML = `
+        <h2>Selected: ${planNames[planNumber]}</h2>
+        <p class="recover-info" style="font-size: 18px; line-height: 1.6; color: #ff9800;">
+          Great choice! You have selected the <strong>${planNames[planNumber]}</strong> package for <strong>${prices[planNumber]}</strong>.
+        </p>
+        <p style="color: #e0e0e0; margin: 25px 0;">
+          To confirm your booking and finalize the arrangements for your 2026 Vacation Meet & Greet,<br><br>
+          please contact <strong>Gavin Management</strong> directly.
+        </p>
+        <div style="background: #3d3d3d; padding: 15px; border-radius: 8px; margin: 20px 0;">
+          <strong style="color: #ff9800;">Next Step:</strong><br>
+          Reach out to Gavin Management for verification and secure payment processing.
+        </div>
+        <button class="close-button" onclick="closePopup()">Close</button>
+      `;
+    }
+  </script>
+</body>
+</html>
