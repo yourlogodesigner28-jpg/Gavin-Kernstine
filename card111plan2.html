@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Membership Card 2026 Dashboard</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #797979;
+      color: #f1f1f1;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .dashboard {
+      max-width: 420px;
+      padding: 20px;
+      border-radius: 12px;
+      background-color: #2c2c2c;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+
+    .profile img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 2px solid #f1f1f1;
+    }
+
+    h1, h2 {
+      color: #ff9800;
+    }
+
+    .membership-card {
+      background: #3d3d3d;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 20px 0;
+      position: relative;
+    }
+
+    .fan-image {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2px solid #ff9800;
+      position: absolute;
+      left: 15px;
+      top: 15px;
+    }
+
+    .membership-card h3,
+    .membership-card p {
+      margin-left: 110px;
+      text-align: left;
+    }
+
+    button {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .open-button {
+      background: #ff9800;
+      color: white;
+    }
+
+    .close-button {
+      background: #555;
+      color: white;
+    }
+
+    .popup-modal {
+      display: none;
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup-content {
+      background: #2c2c2c;
+      width: 90%;
+      max-width: 460px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .popup-header {
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid #444;
+    }
+
+    .popup-body {
+      padding: 20px;
+    }
+
+    .popup-footer {
+      text-align: center;
+      padding: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="dashboard">
+  <div class="profile">
+    <img src="./assets1/celel.jpg">
+    <h2>Membership Card 2026</h2>
+  </div>
+
+  <h1>Welcome, Bridget Peterson!</h1>
+
+  <div class="membership-card">
+    <img src="./assets1/fan_profile1.jpg" class="fan-image">
+    <h3>Your Membership Card</h3>
+    <p>Member: Bridget Peterson</p>
+    <p>ID: #111</p>
+    <p>Status: Active</p>
+  </div>
+
+  <button class="open-button" onclick="openPopup()">
+    Vacation Meet & Greet 2026
+  </button>
+</div>
+
+<!-- Popup -->
+<div class="popup-modal" id="modal">
+  <div class="popup-content" id="modalContent"></div>
+</div>
+
+<script>
+function openPopup() {
+  document.getElementById("modalContent").innerHTML = `
+
+    <!-- Private Jet Image -->
+    <img src="./assets1/private_jet.jpg"
+         style="width:100%; height:200px; object-fit:cover; border-bottom:2px solid #ff9800;">
+
+    <div class="popup-header">
+      <h2>Private Meet & Greet Flight</h2>
+    </div>
+
+    <div class="popup-body">
+      <p style="text-align:center; line-height:1.6;">
+        A private jet will be arranged to bring the full meet & greet experience directly to you,
+        ensuring a luxurious and unforgettable journey.
+      </p>
+
+      <div style="background:#3d3d3d; padding:15px; border-radius:10px; margin:20px 0;">
+        <p>
+          The total cost for flight preparation is 
+          <strong style="color:#ff9800;">$8,000</strong>.
+        </p>
+
+        <p>
+          However, due to the genuine wish to meet you,
+          we are happy to split the cost equally.
+        </p>
+
+        <h2 style="text-align:center;">
+          Your Share: $4,000
+        </h2>
+      </div>
+
+      <p style="text-align:center; font-size:14px; color:#aaa;">
+        This ensures everything is fully prepared for your exclusive experience.
+      </p>
+    </div>
+
+    <div class="popup-footer">
+      <button class="close-button" onclick="closePopup()">Close</button>
+    </div>
+  `;
+
+  document.getElementById("modal").style.display = "flex";
+}
+
+function closePopup() {
+  document.getElementById("modal").style.display = "none";
+}
+</script>
+
+</body>
+</html>
